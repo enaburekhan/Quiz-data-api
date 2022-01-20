@@ -10,10 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_01_19_225245) do
+ActiveRecord::Schema.define(version: 2022_01_20_002901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "quiz_data", force: :cascade do |t|
+    t.string "founder_name"
+    t.string "email"
+    t.string "country"
+    t.string "gender"
+    t.string "race_of_founder"
+    t.text "text_box"
+    t.string "conscious_beauty_credentials"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_quiz_data_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email"
@@ -22,4 +36,5 @@ ActiveRecord::Schema.define(version: 2022_01_19_225245) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "quiz_data", "users"
 end
