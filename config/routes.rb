@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
-  get 'users/create'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-
-  # Defines the root path route ("/")
-  # root "articles#index"
+  scope :api do
+    scope :v1 do
+      resources :users, only: %i[create]
+      resources :signins, only: %i[create]
+      resources :quiz_data
+    end
+  end  
 end
