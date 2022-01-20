@@ -5,5 +5,5 @@ class User < ApplicationRecord
 
   # validations
   validates_presence_of :email
-  validates :password, length: { in: 6..20 } 
+  validates :password, length: { in: 6..20 }
 end

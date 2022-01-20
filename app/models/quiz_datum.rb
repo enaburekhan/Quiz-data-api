@@ -8,5 +8,5 @@ class QuizDatum < ApplicationRecord
   validates_presence_of :gender
   validates_presence_of :race_of_founder
   validates_presence_of :text_box
-  validates_presence_of :conscious_beauty_credentials 
+  validates_presence_of :conscious_beauty_credentials
 end
